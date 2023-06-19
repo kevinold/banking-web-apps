@@ -27,5 +27,5 @@ export function calculateMortgage({
     (principal * (monthlyRate * Math.pow(1 + monthlyRate, payments))) /
     (Math.pow(1 + monthlyRate, payments) - 1);
 
-  return `${currency}${payment.toFixed(2)}`;
+  return `${payment.toFixed(2)} ${currency}`;
 }
