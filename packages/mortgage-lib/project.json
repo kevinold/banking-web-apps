@@ -1,0 +1,38 @@
+{
+  "name": "mortgage-lib",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/mortgage-lib/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/mortgage-lib",
+        "main": "packages/mortgage-lib/src/index.ts",
+        "tsConfig": "packages/mortgage-lib/tsconfig.lib.json",
+        "assets": ["packages/mortgage-lib/*.md"]
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs mortgage-lib {args.ver} {args.tag}",
+      "dependsOn": ["build"]
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/mortgage-lib/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["coverage/packages/mortgage-lib"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../coverage/packages/mortgage-lib"
+      }
+    }
+  },
+  "tags": []
+}
