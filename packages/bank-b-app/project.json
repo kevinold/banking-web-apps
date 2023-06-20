@@ -1,0 +1,68 @@
+{
+  "name": "bank-b-app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/bank-b-app",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/packages/bank-b-app"
+      },
+      "configurations": {
+        "development": {
+          "outputPath": "packages/bank-b-app"
+        },
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "bank-b-app:build",
+        "dev": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "bank-b-app:build:development",
+          "dev": true
+        },
+        "production": {
+          "buildTarget": "bank-b-app:build:production",
+          "dev": false
+        }
+      }
+    },
+    "export": {
+      "executor": "@nx/next:export",
+      "options": {
+        "buildTarget": "bank-b-app:build:production"
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/bank-b-app/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/bank-b-app/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  },
+  "tags": []
+}

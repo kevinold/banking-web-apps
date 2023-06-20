@@ -21,6 +21,9 @@
       ]
     },
     "test": {
+      "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"]
+    },
+    "e2e": {
       "inputs": ["default", "^production"]
     }
   },
@@ -30,7 +33,8 @@
       "default",
       "!{projectRoot}/.eslintrc.json",
       "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
-      "!{projectRoot}/tsconfig.spec.json"
+      "!{projectRoot}/tsconfig.spec.json",
+      "!{projectRoot}/jest.config.[jt]s"
     ],
     "sharedGlobals": []
   },
@@ -45,6 +49,12 @@
       },
       "library": {
         "unitTestRunner": "vitest"
+      }
+    },
+    "@nx/next": {
+      "application": {
+        "style": "css",
+        "linter": "eslint"
       }
     }
   }
