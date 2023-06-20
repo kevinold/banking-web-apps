@@ -1,6 +1,6 @@
 import { calculateMortgage } from './mortgage-lib';
 
-describe('mortgageLib', () => {
+describe('mortgage-lib', () => {
   it('calculate the monthly mortgage price for a property in USD', () => {
     const mortgage = calculateMortgage({
       homePrice: 100000,

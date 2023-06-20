@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@bankcorp/mortgageLib": ["packages/mortgage-lib/src/index.ts"]
+      "@banking-web-apps/mortgage-lib": ["packages/mortgage-lib/src/index.ts"],
+      "@banking-web-apps/shared/ui": ["packages/shared/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
