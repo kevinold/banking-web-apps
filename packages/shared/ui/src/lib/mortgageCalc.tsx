@@ -1,4 +1,4 @@
-import { Button, Heading, Text, TextField } from '@aws-amplify/ui-react';
+import { Button, Heading, TextField } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import { calculateMortgage } from '@banking-web-apps/mortgage-lib';
 import { useState } from 'react';
@@ -58,7 +58,11 @@ export const MortgageCalculator = () => {
       <Button onClick={calculate}>Calculate</Button>
       <br />
       <br />
-      {monthlyPayment && <Text>Monthly payment: ${monthlyPayment}</Text>}
+      {monthlyPayment && (
+        <Heading width="30vw" level={5}>
+          Monthly payment: ${monthlyPayment}
+        </Heading>
+      )}
     </div>
   );
 };
