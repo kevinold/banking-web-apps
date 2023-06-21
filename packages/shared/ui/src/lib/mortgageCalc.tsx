@@ -1,8 +1,9 @@
-import { Button, Text, TextField } from '@aws-amplify/ui-react';
+import { Button, Heading, Text, TextField } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
 import { calculateMortgage } from '@banking-web-apps/mortgage-lib';
 import { useState } from 'react';
 
-const MortgageCalculator = () => {
+export const MortgageCalculator = () => {
   const [homePrice, setHomePrice] = useState(0);
   const [downPayment, setDownPayment] = useState(0);
   const [interestRate, setInterestRate] = useState(0);
@@ -23,6 +24,11 @@ const MortgageCalculator = () => {
 
   return (
     <div>
+      <Heading width="30vw" level={3}>
+        Mortgage Calculator
+      </Heading>
+      <br />
+      <br />
       <TextField
         label="Home price"
         type="number"
@@ -47,10 +53,12 @@ const MortgageCalculator = () => {
         value={loanTerm}
         onChange={(e) => setLoanTerm(e.target.value)}
       />
+      <br />
+      <br />
       <Button onClick={calculate}>Calculate</Button>
+      <br />
+      <br />
       {monthlyPayment && <Text>Monthly payment: ${monthlyPayment}</Text>}
     </div>
   );
 };
-
-export default MortgageCalculator;
