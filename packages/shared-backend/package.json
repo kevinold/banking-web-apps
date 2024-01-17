@@ -1,0 +1,23 @@
+{
+  "name": "shared-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-amplify": "^6.0.12"
+  },
+  "devDependencies": {
+    "@aws-amplify/backend": "^0.10.1",
+    "@aws-amplify/backend-cli": "^0.9.6",
+    "aws-cdk": "^2.121.1",
+    "aws-cdk-lib": "^2.121.1",
+    "constructs": "^10.3.0",
+    "typescript": "^5.3.3"
+  }
+}
